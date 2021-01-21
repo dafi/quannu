@@ -1,5 +1,7 @@
 # Quannu The Timer
 
+![Quanno Screenshot](screenshot.png)
+
 Quannu is another timer app for Mac
 
 There are amazing Timer apps for Mac but the most useful for myself are insanely expensive, hey dude it's just a timer app!
