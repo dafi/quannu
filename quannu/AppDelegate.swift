@@ -7,6 +7,14 @@
 
 import Cocoa
 
+extension NSStatusBarButton {
+
+    public override func mouseDown(with event: NSEvent) {
+        self.highlight(true)
+        (self.target as? AppDelegate)?.statusClicked(self)
+    }
+}
+
 @main
 class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, InputDelegate {
     private var popover: NSPopover?
@@ -32,19 +40,26 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, InputDele
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        setupStatusBar()
+        setupPopover()
+    }
+
+    func setupStatusBar() {
         let statusbar = NSStatusBar.system
         statusItem = statusbar.statusItem(withLength: NSStatusItem.variableLength)
         statusItem.button?.target = self
         statusItem.button?.action = #selector(statusClicked(_:))
         prepareStatusbar(showTimer: false)
+    }
 
+    func setupPopover() {
         let controller = InputViewController()
         controller.delegate = self
 
         let p = NSPopover()
         p.delegate = self
         p.contentViewController = controller
-        p.behavior = .applicationDefined
+        p.behavior = .transient
         p.animates = true
 
         popover = p
@@ -60,10 +75,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, InputDele
         } else {
             popover.show(relativeTo: sender.bounds, of: sender, preferredEdge: .maxY)
         }
-    }
-
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
     }
 
     @discardableResult func stopTimer() -> Bool {
@@ -156,6 +167,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, InputDele
         if timerSound.stop() || stopTimer() {
             prepareStatusbar(showTimer: false)
         }
+    }
+
+    func popoverWillClose(_ notification: Notification) {
+        statusItem.button?.highlight(false)
     }
 
     func popoverWillShow(_ notification: Notification) {
