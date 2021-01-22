@@ -11,7 +11,10 @@ extension NSStatusBarButton {
 
     public override func mouseDown(with event: NSEvent) {
         self.highlight(true)
-        (self.target as? AppDelegate)?.statusClicked(self)
+        if let target = self.target,
+           let action = self.action {
+            _ = target.perform(action, with: self)
+        }
     }
 }
 
@@ -49,6 +52,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, InputDele
         statusItem = statusbar.statusItem(withLength: NSStatusItem.variableLength)
         statusItem.button?.target = self
         statusItem.button?.action = #selector(statusClicked(_:))
+
+        if let pointSize = statusItem.button?.font?.pointSize {
+            statusItem.button?.font = NSFont.monospacedDigitSystemFont(ofSize: pointSize,
+                                                                       weight: .regular)
+        }
+
         prepareStatusbar(showTimer: false)
     }
 
