@@ -17,9 +17,9 @@ class InputViewController: NSViewController, NSControlTextEditingDelegate {
     @IBOutlet var inputText: NSTextField!
     @IBOutlet private var state: NSButton!
 
-    private var _isInProgress = false
-
     weak open var delegate: InputDelegate?
+
+    private var _isInProgress = false
     var isInProgress: Bool {
         get {
             _isInProgress
@@ -35,8 +35,16 @@ class InputViewController: NSViewController, NSControlTextEditingDelegate {
     }
 
     override func awakeFromNib() {
+        setupInputText()
+    }
+
+    private func setupInputText() {
         inputText.focusRingType = .none
         inputText.backgroundColor = NSColor.clear
+        if let color = NSColor(named: "TextPlaceHolder") {
+            inputText.setPlaceHolderTextColor(color: color)
+            inputText.setPlaceHolderTextColor(color: color)
+        }
     }
 
     override func viewDidLoad() {
