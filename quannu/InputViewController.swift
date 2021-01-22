@@ -43,7 +43,6 @@ class InputViewController: NSViewController, NSControlTextEditingDelegate {
         inputText.backgroundColor = NSColor.clear
         if let color = NSColor(named: "TextPlaceHolder") {
             inputText.setPlaceHolderTextColor(color: color)
-            inputText.setPlaceHolderTextColor(color: color)
         }
     }
 
