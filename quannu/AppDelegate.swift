@@ -24,7 +24,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, InputDele
 
     var timer: Timer?
     var statusItem: NSStatusItem!
-    var timerSound: TimerSound
+    var timerSound: TimerSound!
 
     let englishWordMap: TimerInfoWordMap
 
@@ -37,12 +37,26 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, InputDele
             "h": "h",
             "hours": "h",
         ]
-
-        timerSound = TimerSound(sound: NSSound(named: "drizzle")!)
     }
 
+    private func readSound() -> NSSound {
+        guard let path = UserDefaults.standard.string(forKey: "sound"),
+              let url = SecureBookmark.shared.secureUrlFromBookmark(path: path) else {
+            return NSSound(named: "drizzle")!
+        }
+
+        defer {
+            SecureBookmark.shared.stopAccessingSecurityScopedResource(url: url)
+        }
+
+        guard let sound = NSSound(contentsOfFile: path, byReference: false) else {
+            return NSSound(named: "drizzle")!
+        }
+        return sound
+    }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        timerSound = TimerSound(sound: readSound())
         setupStatusBar()
         setupPopover()
     }
@@ -175,6 +189,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, InputDele
     func stop() {
         if timerSound.stop() || stopTimer() {
             prepareStatusbar(showTimer: false)
+        }
+    }
+
+    func didPreferenceChanged(key: String, value: Any) {
+        if key == "sound" {
+            if let path = (value as? URL)?.path {
+                UserDefaults.standard.set(path, forKey: "sound")
+                SecureBookmark.shared.secureBookmark(path: path)
+                timerSound.sound = readSound()
+            }
         }
     }
 

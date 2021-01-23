@@ -57,6 +57,17 @@
                         <action selector="quit:" target="-2" id="mGh-HE-Mom"/>
                     </connections>
                 </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rWL-RN-veY">
+                    <rect key="frame" x="132" y="13" width="76" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vaF-GZ-a8W">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="preferences:" target="-2" id="oFt-OB-mHQ"/>
+                    </connections>
+                </button>
             </subviews>
             <point key="canvasLocation" x="-32" y="65"/>
         </customView>

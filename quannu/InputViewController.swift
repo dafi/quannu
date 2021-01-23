@@ -11,6 +11,7 @@ protocol InputDelegate : AnyObject {
     func close()
     func start(text: String) -> Bool
     func stop()
+    func didPreferenceChanged(key: String, value: Any)
 }
 
 class InputViewController: NSViewController, NSControlTextEditingDelegate {
@@ -65,6 +66,30 @@ class InputViewController: NSViewController, NSControlTextEditingDelegate {
 
     @IBAction func quit(_ sender: AnyObject) {
         NSApp.terminate(sender)
+    }
+
+    @IBAction func preferences(_ sender: AnyObject) {
+        // otherwise the panel is not clickable, the only action possible is to click the 'cancel' button
+        NSApplication.shared.activate(ignoringOtherApps: true)
+
+
+        let window = NSWindow(contentViewController: PreferencesViewController())
+        window.makeKeyAndOrderFront(nil)
+
+
+//        let panel = NSOpenPanel()
+//        panel.canChooseDirectories = false
+//        panel.canChooseFiles = true
+//        if panel.runModal() == .OK,
+//           let url = panel.url {
+//            if let _ = NSSound(contentsOf: url, byReference: false) {
+//                delegate?.didPreferenceChanged(key: "sound", value: url)
+//            } else {
+//                let alert = NSAlert()
+//                alert.messageText = NSLocalizedString("The file is not a valid sound", comment: "")
+//                alert.runModal()
+//            }
+//        }
     }
 
     func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
