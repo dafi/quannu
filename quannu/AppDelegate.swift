@@ -140,6 +140,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, InputDele
             timer.invalidate()
             self.timer = nil
             self.timerSound.play()
+            statusItem.button?.fadeAnimation(stop: false)
         }
     }
 
@@ -192,18 +193,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, InputDele
     func stop() {
         if timerSound.stop() || stopTimer() {
             prepareStatusbar(showTimer: false)
+            statusItem.button?.fadeAnimation(stop: true)
         }
     }
-
-//    func didPreferenceChanged(key: String, value: Any) {
-//        if key == "sound" {
-//            if let path = (value as? URL)?.path {
-//                UserDefaults.standard.set(path, forKey: "sound")
-//                SecureBookmark.shared.secureBookmark(path: path)
-//                timerSound.sound = readSound()
-//            }
-//        }
-//    }
 
     func popoverWillClose(_ notification: Notification) {
         statusItem.button?.highlight(false)
