@@ -8,7 +8,12 @@
 import Cocoa
 
 class TimerSound {
-    var sound: NSSound
+    var sound: NSSound {
+        willSet {
+            _ = stop()
+        }
+    }
+
     var isPlaying: Bool {
         get {
             sound.isPlaying

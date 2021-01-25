@@ -39,26 +39,29 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, InputDele
         ]
     }
 
-    private func readSound() -> NSSound {
-        guard let path = UserDefaults.standard.string(forKey: "sound"),
-              let url = SecureBookmark.shared.secureUrlFromBookmark(path: path) else {
-            return NSSound(named: "drizzle")!
-        }
-
-        defer {
-            SecureBookmark.shared.stopAccessingSecurityScopedResource(url: url)
-        }
-
-        guard let sound = NSSound(contentsOfFile: path, byReference: false) else {
-            return NSSound(named: "drizzle")!
-        }
-        return sound
-    }
-
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        timerSound = TimerSound(sound: readSound())
+        let sound = SoundItem.defaultValue().sound ?? NSSound(named: SoundItem.resourceName)!
+        timerSound = TimerSound(sound: sound)
         setupStatusBar()
         setupPopover()
+
+        UserDefaults.standard.addObserver(self,
+                                          forKeyPath: SoundItem.prefName,
+                                          options: .new,
+                                          context: nil)
+    }
+
+    func applicationWillTerminate(_ notification: Notification) {
+        UserDefaults.standard.removeObserver(self, forKeyPath: SoundItem.prefName)
+    }
+
+    override func observeValue(forKeyPath keyPath: String?,
+                               of object: Any?,
+                               change: [NSKeyValueChangeKey : Any]?,
+                               context: UnsafeMutableRawPointer?) {
+        if keyPath == SoundItem.prefName {
+            timerSound.sound = SoundItem.defaultValue().sound ?? NSSound(named: SoundItem.resourceName)!
+        }
     }
 
     func setupStatusBar() {
@@ -192,15 +195,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, InputDele
         }
     }
 
-    func didPreferenceChanged(key: String, value: Any) {
-        if key == "sound" {
-            if let path = (value as? URL)?.path {
-                UserDefaults.standard.set(path, forKey: "sound")
-                SecureBookmark.shared.secureBookmark(path: path)
-                timerSound.sound = readSound()
-            }
-        }
-    }
+//    func didPreferenceChanged(key: String, value: Any) {
+//        if key == "sound" {
+//            if let path = (value as? URL)?.path {
+//                UserDefaults.standard.set(path, forKey: "sound")
+//                SecureBookmark.shared.secureBookmark(path: path)
+//                timerSound.sound = readSound()
+//            }
+//        }
+//    }
 
     func popoverWillClose(_ notification: Notification) {
         statusItem.button?.highlight(false)
