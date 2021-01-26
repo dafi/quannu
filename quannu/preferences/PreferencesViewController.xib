@@ -8,8 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreferencesViewController" customModule="quannu" customModuleProvider="target">
             <connections>
-                <outlet property="removeSoundButton" destination="cgf-AH-xxd" id="bCx-j1-PSD"/>
-                <outlet property="soundTable" destination="Aon-nk-nhi" id="7FQ-ZS-ryP"/>
+                <outlet property="soundsPanel" destination="PEP-8T-CIJ" id="YrQ-wT-Qym"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -77,9 +76,9 @@
                                                         </tableColumn>
                                                     </tableColumns>
                                                     <connections>
-                                                        <action selector="soundClicked:" target="-2" id="dl3-1a-oCw"/>
-                                                        <outlet property="dataSource" destination="-2" id="eoQ-T1-V0q"/>
-                                                        <outlet property="delegate" destination="-2" id="ABb-rg-Epu"/>
+                                                        <action selector="soundClicked:" target="PEP-8T-CIJ" id="kVJ-rz-ios"/>
+                                                        <outlet property="dataSource" destination="PEP-8T-CIJ" id="UJO-Dw-HyJ"/>
+                                                        <outlet property="delegate" destination="PEP-8T-CIJ" id="GWh-MJ-vfA"/>
                                                     </connections>
                                                 </tableView>
                                             </subviews>
@@ -109,21 +108,35 @@
                                     <button toolTip="Choose sound to use" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gWt-c9-pG9">
                                         <rect key="frame" x="378" y="262" width="45" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSAddTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1bi-YI-EW0">
+                                        <buttonCell key="cell" type="push" title="+" bezelStyle="rounded" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1bi-YI-EW0">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
-                                            <action selector="addSound:" target="-2" id="Nyx-VU-HGh"/>
+                                            <action selector="addSound:" target="PEP-8T-CIJ" id="Hmp-rw-ZVJ"/>
                                         </connections>
                                     </button>
                                     <button toolTip="Remove sound from the list" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cgf-AH-xxd">
                                         <rect key="frame" x="378" y="235" width="45" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSMenuMixedStateTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EnY-dL-ekm">
+                                        <buttonCell key="cell" type="push" title="-" bezelStyle="rounded" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EnY-dL-ekm">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="removeSound:" target="PEP-8T-CIJ" id="f1J-w0-xBM"/>
+                                        </connections>
+                                    </button>
+                                    <button toolTip="Show In Finder" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ll-e8-XT2">
+                                        <rect key="frame" x="378" y="207" width="45" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="finder" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="sgS-qm-2zq">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="showInFunder:" target="PEP-8T-CIJ" id="588-x6-p0r"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </view>
@@ -133,9 +146,15 @@
             </subviews>
             <point key="canvasLocation" x="-160" y="156"/>
         </customView>
+        <customObject id="PEP-8T-CIJ" userLabel="SoundsPanel" customClass="SoundPanel" customModule="quannu" customModuleProvider="target">
+            <connections>
+                <outlet property="removeSoundButton" destination="cgf-AH-xxd" id="1G6-iO-ALa"/>
+                <outlet property="showInFinderButton" destination="4ll-e8-XT2" id="fMH-jJ-JMX"/>
+                <outlet property="table" destination="Aon-nk-nhi" id="PFo-Z7-bRw"/>
+            </connections>
+        </customObject>
     </objects>
     <resources>
-        <image name="NSAddTemplate" width="15" height="13"/>
-        <image name="NSMenuMixedStateTemplate" width="15" height="4"/>
+        <image name="finder" width="32" height="34"/>
     </resources>
 </document>

@@ -9,10 +9,8 @@ import Foundation
 
 extension SoundItem {
     func setAsDefault(key: String = prefName) {
-        let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(self) {
+        if let encoded = try? JSONEncoder().encode(self) {
             UserDefaults.standard.set(encoded, forKey: key)
-            SecureBookmark.shared.secureBookmark(path: path)
         }
     }
 
