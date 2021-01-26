@@ -29,14 +29,14 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJ8-Yn-4KO">
-                                        <rect key="frame" x="0.0" y="-6" width="382" height="295"/>
+                                        <rect key="frame" x="0.0" y="44" width="382" height="245"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <clipView key="contentView" id="h4l-rk-zbn">
-                                            <rect key="frame" x="1" y="1" width="380" height="293"/>
+                                            <rect key="frame" x="1" y="1" width="380" height="243"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="automatic" headerView="3z9-a6-KaY" viewBased="YES" id="Aon-nk-nhi">
-                                                    <rect key="frame" x="0.0" y="0.0" width="380" height="265"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="380" height="215"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <size key="intercellSpacing" width="17" height="0.0"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -84,7 +84,7 @@
                                             </subviews>
                                         </clipView>
                                         <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="Qc4-wI-X5d">
-                                            <rect key="frame" x="1" y="278" width="380" height="16"/>
+                                            <rect key="frame" x="1" y="228" width="380" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="S55-e2-f6a">
@@ -108,7 +108,7 @@
                                     <button toolTip="Choose sound to use" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gWt-c9-pG9">
                                         <rect key="frame" x="378" y="262" width="45" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="push" title="+" bezelStyle="rounded" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1bi-YI-EW0">
+                                        <buttonCell key="cell" type="push" title="+" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1bi-YI-EW0">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -138,6 +138,45 @@
                                             <action selector="showInFunder:" target="PEP-8T-CIJ" id="588-x6-p0r"/>
                                         </connections>
                                     </button>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b6y-pb-w2H">
+                                        <rect key="frame" x="0.0" y="17" width="82" height="16"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Alert Volume" id="QLh-aZ-gWL">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ocL-ck-8Wu">
+                                        <rect key="frame" x="108" y="7" width="246" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <sliderCell key="cell" state="on" alignment="left" maxValue="1" doubleValue="1" tickMarkPosition="above" numberOfTickMarks="5" sliderType="linear" id="NJS-7L-PUV"/>
+                                        <connections>
+                                            <action selector="onVolumeChange:" target="PEP-8T-CIJ" id="Nig-Kx-sae"/>
+                                        </connections>
+                                    </slider>
+                                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sMZ-xb-ZvR">
+                                        <rect key="frame" x="360" y="12" width="22" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTouchBarAudioOutputVolumeHighTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="BWW-pz-eym">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="onVolumeMax:" target="PEP-8T-CIJ" id="BcN-Wl-5k8"/>
+                                        </connections>
+                                    </button>
+                                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vdI-V1-nCX">
+                                        <rect key="frame" x="86" y="13" width="16" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTouchBarAudioOutputVolumeLowTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="MJ2-fp-8St">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="onVolumeMin:" target="PEP-8T-CIJ" id="VET-oD-Yzo"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </view>
                         </tabViewItem>
@@ -151,10 +190,13 @@
                 <outlet property="removeSoundButton" destination="cgf-AH-xxd" id="1G6-iO-ALa"/>
                 <outlet property="showInFinderButton" destination="4ll-e8-XT2" id="fMH-jJ-JMX"/>
                 <outlet property="table" destination="Aon-nk-nhi" id="PFo-Z7-bRw"/>
+                <outlet property="volumeSlider" destination="ocL-ck-8Wu" id="0VH-Lh-LLS"/>
             </connections>
         </customObject>
     </objects>
     <resources>
+        <image name="NSTouchBarAudioOutputVolumeHighTemplate" width="22" height="15"/>
+        <image name="NSTouchBarAudioOutputVolumeLowTemplate" width="16" height="14"/>
         <image name="finder" width="32" height="34"/>
     </resources>
 </document>

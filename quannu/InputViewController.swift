@@ -68,6 +68,11 @@ class InputViewController: NSViewController, NSControlTextEditingDelegate {
         NSApp.terminate(sender)
     }
 
+    @IBAction func about(_ sender: AnyObject) {
+        NSApplication.shared.activate(ignoringOtherApps: true)
+        NSApp.orderFrontStandardAboutPanel(nil)
+    }
+
     @IBAction func preferences(_ sender: AnyObject) {
         if let window = preferences?.view.window {
             NSApplication.shared.activate(ignoringOtherApps: true)

@@ -12,17 +12,21 @@ class SoundPanel : NSObject, NSTableViewDelegate, NSTableViewDataSource {
     @IBOutlet var table: NSTableView!
     @IBOutlet var removeSoundButton: NSButton!
     @IBOutlet var showInFinderButton: NSButton!
+    @IBOutlet var volumeSlider: NSSlider!
 
     var soundItems = [SoundItem]()
     var sound: NSSound?
 
     override func awakeFromNib() {
         soundItems = SoundItem.load().sorted(by: <)
-        let defaultItem = SoundItem.defaultValue()
+        let defaultItem = UserDefaults.standard.soundEffect()
         if let row = soundItems.firstIndex(where: { $0 == defaultItem }) {
             table.selectRowIndexes(IndexSet(integer: row), byExtendingSelection: false)
             table.scrollRowToVisible(row)
         }
+        sound = defaultItem.sound
+        volumeSlider.floatValue = UserDefaults.standard.soundVolume()
+        volumeSlider.toolTip = "\(Int(volumeSlider.floatValue * 100))%"
     }
 
     @IBAction func addSound(_ sender: AnyObject) {
@@ -86,6 +90,28 @@ class SoundPanel : NSObject, NSTableViewDelegate, NSTableViewDataSource {
         sound?.stop()
         sound = item.sound
         sound?.play()
+    }
+
+    @IBAction func onVolumeChange(_ sender: NSSlider) {
+        sender.toolTip = "\(Int(sender.floatValue * 100))%"
+
+        UserDefaults.standard.setVolume(value: sender.floatValue)
+
+        if let sound = sound {
+            sound.stop()
+            sound.volume = sender.floatValue
+            sound.play()
+        }
+    }
+
+    @IBAction func onVolumeMin(_ sender: AnyObject) {
+        volumeSlider.floatValue = 0.03
+        onVolumeChange(volumeSlider)
+    }
+
+    @IBAction func onVolumeMax(_ sender: AnyObject) {
+        volumeSlider.floatValue = 1.0
+        onVolumeChange(volumeSlider)
     }
 
     @IBAction func showInFunder(_ sender: AnyObject) {

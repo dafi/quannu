@@ -22,6 +22,7 @@
 		555125B425B5B80600720494 /* TimerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555125B325B5B80600720494 /* TimerInfo.swift */; };
 		555C77DC25BFF21A00114A94 /* drizzle.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 555C77DA25BFF21A00114A94 /* drizzle.m4a */; };
 		555C77DD25BFF21A00114A94 /* watch.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 555C77DB25BFF21A00114A94 /* watch.m4a */; };
+		5568808025C0197600F88D45 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 5568807F25C0197600F88D45 /* Credits.rtf */; };
 		5584788725BFE02E007A4C5E /* SoundPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584788625BFE02E007A4C5E /* SoundPanel.swift */; };
 		55B7D61925B6FC9400F23E90 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B7D61725B6FC9400F23E90 /* InputViewController.swift */; };
 		55B7D61A25B6FC9400F23E90 /* InputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55B7D61825B6FC9400F23E90 /* InputViewController.xib */; };
@@ -69,6 +70,7 @@
 		555125B325B5B80600720494 /* TimerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerInfo.swift; sourceTree = "<group>"; };
 		555C77DA25BFF21A00114A94 /* drizzle.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = drizzle.m4a; sourceTree = "<group>"; };
 		555C77DB25BFF21A00114A94 /* watch.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = watch.m4a; sourceTree = "<group>"; };
+		5568807F25C0197600F88D45 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		5584788625BFE02E007A4C5E /* SoundPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPanel.swift; sourceTree = "<group>"; };
 		55B7D61725B6FC9400F23E90 /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
 		55B7D61825B6FC9400F23E90 /* InputViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputViewController.xib; sourceTree = "<group>"; };
@@ -158,15 +160,16 @@
 		5515EDB025B4149D00F79A72 /* quannu */ = {
 			isa = PBXGroup;
 			children = (
-				555C77D825BFF21A00114A94 /* resources */,
-				551EE0DB25BD839B001A09F1 /* preferences */,
 				5515EDB125B4149D00F79A72 /* AppDelegate.swift */,
 				5515EDB325B4149E00F79A72 /* Assets.xcassets */,
+				5568807F25C0197600F88D45 /* Credits.rtf */,
 				5515EDB825B4149E00F79A72 /* Info.plist */,
 				55B7D61725B6FC9400F23E90 /* InputViewController.swift */,
 				55B7D61825B6FC9400F23E90 /* InputViewController.xib */,
 				5515EDB525B4149E00F79A72 /* MainMenu.xib */,
+				551EE0DB25BD839B001A09F1 /* preferences */,
 				5515EDB925B4149E00F79A72 /* quannu.entitlements */,
+				555C77D825BFF21A00114A94 /* resources */,
 				555125B325B5B80600720494 /* TimerInfo.swift */,
 				5533FAFF25B6D17900CF7F8E /* TimerSound.swift */,
 				550AD7F825BC4E200066F9BE /* utils */,
@@ -338,6 +341,7 @@
 				555C77DD25BFF21A00114A94 /* watch.m4a in Resources */,
 				55B7D61A25B6FC9400F23E90 /* InputViewController.xib in Resources */,
 				555C77DC25BFF21A00114A94 /* drizzle.m4a in Resources */,
+				5568808025C0197600F88D45 /* Credits.rtf in Resources */,
 				5515EDB725B4149E00F79A72 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

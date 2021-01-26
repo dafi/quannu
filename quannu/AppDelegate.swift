@@ -40,27 +40,40 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, InputDele
     }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        let sound = SoundItem.defaultValue().sound ?? NSSound(named: SoundItem.resourceName)!
+        let sound = UserDefaults.standard.soundEffect().soundOrDefault
+        sound.volume = UserDefaults.standard.soundVolume()
         timerSound = TimerSound(sound: sound)
         setupStatusBar()
         setupPopover()
 
         UserDefaults.standard.addObserver(self,
-                                          forKeyPath: SoundItem.prefName,
+                                          forKeyPath: prefNameSoundEffect,
+                                          options: .new,
+                                          context: nil)
+        UserDefaults.standard.addObserver(self,
+                                          forKeyPath: prefNameSoundVolume,
                                           options: .new,
                                           context: nil)
     }
 
     func applicationWillTerminate(_ notification: Notification) {
-        UserDefaults.standard.removeObserver(self, forKeyPath: SoundItem.prefName)
+        UserDefaults.standard.removeObserver(self, forKeyPath: prefNameSoundEffect)
+        UserDefaults.standard.removeObserver(self, forKeyPath: prefNameSoundVolume)
     }
 
     override func observeValue(forKeyPath keyPath: String?,
                                of object: Any?,
                                change: [NSKeyValueChangeKey : Any]?,
                                context: UnsafeMutableRawPointer?) {
-        if keyPath == SoundItem.prefName {
-            timerSound.sound = SoundItem.defaultValue().sound ?? NSSound(named: SoundItem.resourceName)!
+        switch keyPath {
+        case prefNameSoundEffect:
+            timerSound.sound = UserDefaults.standard.soundEffect().soundOrDefault
+        case prefNameSoundVolume:
+            if let value = change?[.newKey] as? NSNumber {
+                timerSound.sound.volume = value.floatValue
+            }
+        default:
+            Log.info("Unable to handle \(String(describing: keyPath))")
         }
     }
 

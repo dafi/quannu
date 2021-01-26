@@ -8,12 +8,14 @@
 import Foundation
 import Cocoa
 
+public let prefNameSoundEffect = "soundEffect"
+public let prefNameSoundVolume = "soundVolume"
+
 struct SoundItem : Codable {
     let displayName: String
     let isResource: Bool
     let path: String
 
-    public static let prefName = "sound"
     public static let resourceName = "drizzle"
 
     init(path: String, isResource: Bool) {
@@ -31,6 +33,12 @@ struct SoundItem : Codable {
             let sound = NSSound(contentsOfFile: path, byReference: false)
             SecureBookmark.shared.stopAccessingSecurityScopedResource(url: url)
             return sound
+        }
+    }
+
+    var soundOrDefault: NSSound {
+        get {
+            sound ?? NSSound(named: SoundItem.resourceName)!
         }
     }
 }
