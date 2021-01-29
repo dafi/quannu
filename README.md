@@ -8,7 +8,7 @@ Why to prefer Quannu to the other amazing Timer apps already existing?
 
 • Quanno is free and without Ads or Pro versions
 
-• The UI is spartanic but easy to use
+• The UI is clean and easy to use
 
 • Enter the time typing the text, no needs to click here and there, just type and press ENTER
 
