@@ -241,11 +241,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, InputDele
     func popoverWillShow(_ notification: Notification) {
         var isInProgress = timerSound.isPlaying
 
-        if !isInProgress,
-           let timer = timer, timer.isValid {
+        if !isInProgress && isTimerRunning {
             isInProgress = true
         }
-        (popover?.contentViewController as? InputViewController)?.isInProgress = isInProgress
+        if let controller = popover?.contentViewController as? InputViewController {
+            controller.isInProgress = isInProgress
+            controller.inputText.selectText(nil)
+        }
     }
 
 }
