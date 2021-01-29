@@ -25,6 +25,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, InputDele
     var timer: Timer?
     var statusItem: NSStatusItem!
     var timerSound: TimerSound!
+    var isTimerRunning: Bool {
+        get {
+            if let timer = timer, timer.isValid {
+                return true
+            }
+            return false
+        }
+    }
 
     let englishWordMap: TimerInfoWordMap
 
@@ -193,6 +201,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, InputDele
 
     func start(text: String) -> Bool {
         do {
+            if isTimerRunning {
+                if askStopRunningTime() {
+                    stop()
+                } else {
+                    return false
+                }
+            }
             if try startTimer(pattern: text) {
                 close()
                 return true
@@ -201,6 +216,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, InputDele
             prepareStatusbar(showTimer: false)
         }
         return false
+    }
+
+    private func askStopRunningTime() -> Bool {
+        let alert = NSAlert()
+        alert.messageText = NSLocalizedString("Stop running timer?", comment: "")
+        alert.addButton(withTitle: NSLocalizedString("Yes", comment: ""))
+        alert.addButton(withTitle: NSLocalizedString("No", comment: ""))
+
+        return alert.runModal() == .alertFirstButtonReturn
     }
 
     func stop() {
