@@ -6,7 +6,7 @@ Quannu is another timer app for Mac
 
 Why to prefer Quannu to the other amazing Timer apps already existing?
 
-• Quanno is free and without Ads or Pro versions
+• Quanno is free (and open source), without Ads or Pro versions
 
 • The UI is clean and easy to use
 
