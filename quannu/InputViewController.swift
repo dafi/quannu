@@ -18,6 +18,7 @@ class InputViewController: NSViewController, NSControlTextEditingDelegate {
     @IBOutlet private var state: NSButton!
 
     weak open var delegate: InputDelegate?
+    weak var preferences: PreferencesViewController?
 
     private var _isInProgress = false
     var isInProgress: Bool {
@@ -67,13 +68,26 @@ class InputViewController: NSViewController, NSControlTextEditingDelegate {
         NSApp.terminate(sender)
     }
 
+    @IBAction func about(_ sender: AnyObject) {
+        NSApplication.shared.activate(ignoringOtherApps: true)
+        NSApp.orderFrontStandardAboutPanel(nil)
+    }
+
+    @IBAction func preferences(_ sender: AnyObject) {
+        if let window = preferences?.view.window {
+            NSApplication.shared.activate(ignoringOtherApps: true)
+            window.makeKeyAndOrderFront(nil)
+        } else {
+            preferences = PreferencesViewController.openWindow()
+        }
+    }
+
+    override func cancelOperation(_ sender: Any?) {
+        delegate?.close()
+    }
+
     func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
         switch commandSelector {
-        case #selector(cancelOperation):
-            if let delegate = delegate {
-                delegate.close()
-                return true
-            }
         case #selector(insertNewline(_:)):
             if let delegate = delegate {
                 if delegate.start(text: inputText.stringValue) {

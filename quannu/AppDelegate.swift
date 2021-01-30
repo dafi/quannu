@@ -24,7 +24,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, InputDele
 
     var timer: Timer?
     var statusItem: NSStatusItem!
-    var timerSound: TimerSound
+    var timerSound: TimerSound!
+    var isTimerRunning: Bool {
+        get {
+            if let timer = timer, timer.isValid {
+                return true
+            }
+            return false
+        }
+    }
 
     let englishWordMap: TimerInfoWordMap
 
@@ -37,14 +45,44 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, InputDele
             "h": "h",
             "hours": "h",
         ]
-
-        timerSound = TimerSound(sound: NSSound(named: "drizzle")!)
     }
 
-
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        let sound = UserDefaults.standard.soundEffect().soundOrDefault
+        sound.volume = UserDefaults.standard.soundVolume()
+        timerSound = TimerSound(sound: sound)
         setupStatusBar()
         setupPopover()
+
+        UserDefaults.standard.addObserver(self,
+                                          forKeyPath: prefNameSoundEffect,
+                                          options: .new,
+                                          context: nil)
+        UserDefaults.standard.addObserver(self,
+                                          forKeyPath: prefNameSoundVolume,
+                                          options: .new,
+                                          context: nil)
+    }
+
+    func applicationWillTerminate(_ notification: Notification) {
+        UserDefaults.standard.removeObserver(self, forKeyPath: prefNameSoundEffect)
+        UserDefaults.standard.removeObserver(self, forKeyPath: prefNameSoundVolume)
+    }
+
+    override func observeValue(forKeyPath keyPath: String?,
+                               of object: Any?,
+                               change: [NSKeyValueChangeKey : Any]?,
+                               context: UnsafeMutableRawPointer?) {
+        switch keyPath {
+        case prefNameSoundEffect:
+            timerSound.sound = UserDefaults.standard.soundEffect().soundOrDefault
+        case prefNameSoundVolume:
+            if let value = change?[.newKey] as? NSNumber {
+                timerSound.sound.volume = value.floatValue
+            }
+        default:
+            Log.info("Unable to handle \(String(describing: keyPath))")
+        }
     }
 
     func setupStatusBar() {
@@ -123,6 +161,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, InputDele
             timer.invalidate()
             self.timer = nil
             self.timerSound.play()
+            statusItem.button?.fadeAnimation(stop: false)
         }
     }
 
@@ -162,6 +201,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, InputDele
 
     func start(text: String) -> Bool {
         do {
+            if isTimerRunning {
+                if askStopRunningTime() {
+                    stop()
+                } else {
+                    return false
+                }
+            }
             if try startTimer(pattern: text) {
                 close()
                 return true
@@ -172,9 +218,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, InputDele
         return false
     }
 
+    private func askStopRunningTime() -> Bool {
+        let alert = NSAlert()
+        alert.messageText = NSLocalizedString("Stop running timer?", comment: "")
+        alert.addButton(withTitle: NSLocalizedString("Yes", comment: ""))
+        alert.addButton(withTitle: NSLocalizedString("No", comment: ""))
+
+        return alert.runModal() == .alertFirstButtonReturn
+    }
+
     func stop() {
         if timerSound.stop() || stopTimer() {
             prepareStatusbar(showTimer: false)
+            statusItem.button?.fadeAnimation(stop: true)
         }
     }
 
@@ -185,11 +241,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate, InputDele
     func popoverWillShow(_ notification: Notification) {
         var isInProgress = timerSound.isPlaying
 
-        if !isInProgress,
-           let timer = timer, timer.isValid {
+        if !isInProgress && isTimerRunning {
             isInProgress = true
         }
-        (popover?.contentViewController as? InputViewController)?.isInProgress = isInProgress
+        if let controller = popover?.contentViewController as? InputViewController {
+            controller.isInProgress = isInProgress
+            controller.inputText.selectText(nil)
+        }
     }
 
 }

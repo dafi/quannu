@@ -4,7 +4,16 @@
 
 Quannu is another timer app for Mac
 
-There are amazing Timer apps for Mac but the most useful for myself are insanely expensive, hey dude it's just a timer app!
+Why to prefer Quannu to the other amazing Timer apps already existing?
+
+• Quanno is free and without Ads or Pro versions
+
+• The UI is clean and easy to use
+
+• Enter the time typing the text, no needs to click here and there, just type and press ENTER
+
+• You can select the sound from your own collection of files
+
 
 ## How to set up timers
 

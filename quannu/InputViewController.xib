@@ -46,22 +46,41 @@
                         <action selector="toggle:" target="-2" id="ry6-M7-Q4V"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OPA-cK-UfX">
-                    <rect key="frame" x="206" y="13" width="53" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" title="Quit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="t3s-Dm-njh">
+                <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kkk-qd-X1J">
+                    <rect key="frame" x="208" y="20" width="44" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="smallSquare" bezelStyle="smallSquare" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" pullsDown="YES" id="3nC-gp-N5x">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="quit:" target="-2" id="mGh-HE-Mom"/>
-                    </connections>
-                </button>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" id="Yfh-Xp-4U4">
+                            <items>
+                                <menuItem state="on" image="NSSmartBadgeTemplate" hidden="YES" id="uYa-E1-yNO"/>
+                                <menuItem title="Preferences" keyEquivalent="," id="BA9-64-I7h">
+                                    <connections>
+                                        <action selector="preferences:" target="-2" id="sUn-YZ-f3S"/>
+                                    </connections>
+                                </menuItem>
+                                <menuItem title="About" id="Kei-1O-oh5">
+                                    <connections>
+                                        <action selector="about:" target="-2" id="IM9-NH-0eY"/>
+                                    </connections>
+                                </menuItem>
+                                <menuItem isSeparatorItem="YES" id="bPb-hi-9xq"/>
+                                <menuItem title="Quit" keyEquivalent="q" id="fWy-Zo-vzx">
+                                    <connections>
+                                        <action selector="quit:" target="-2" id="Wje-By-cZZ"/>
+                                    </connections>
+                                </menuItem>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                </popUpButton>
             </subviews>
             <point key="canvasLocation" x="-32" y="65"/>
         </customView>
     </objects>
     <resources>
+        <image name="NSSmartBadgeTemplate" width="14" height="14"/>
         <image name="play" width="32" height="32"/>
     </resources>
 </document>

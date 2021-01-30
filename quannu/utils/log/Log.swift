@@ -8,11 +8,11 @@
 import Foundation
 
 class Log {
-    static func log(_ message: String, function: String = #function) {
+    static func info(_ message: String, function: String = #function) {
         NSLog("\(function) \(message)")
     }
 
-    static func logError(_ error: Error, function: String = #function) {
+    static func error(_ error: Error, function: String = #function) {
         NSLog("\(function) \(error)")
     }
 }

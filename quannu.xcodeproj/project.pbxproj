@@ -7,18 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		550AD7FF25BC4E200066F9BE /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550AD7FA25BC4E200066F9BE /* Log.swift */; };
+		550AD80025BC4E200066F9BE /* SecureBookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550AD7FC25BC4E200066F9BE /* SecureBookmark.swift */; };
+		550AD80125BC4E200066F9BE /* NSTextField+PlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550AD7FE25BC4E200066F9BE /* NSTextField+PlaceHolder.swift */; };
 		5515EDB225B4149D00F79A72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5515EDB125B4149D00F79A72 /* AppDelegate.swift */; };
 		5515EDB425B4149E00F79A72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5515EDB325B4149E00F79A72 /* Assets.xcassets */; };
 		5515EDB725B4149E00F79A72 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5515EDB525B4149E00F79A72 /* MainMenu.xib */; };
 		5515EDC325B4149E00F79A72 /* quannuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5515EDC225B4149E00F79A72 /* quannuTests.swift */; };
 		5515EDCE25B4149E00F79A72 /* quannuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5515EDCD25B4149E00F79A72 /* quannuUITests.swift */; };
-		5515EDE725B4192B00F79A72 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5515EDE625B4192B00F79A72 /* Log.swift */; };
-		5515EDFE25B4544700F79A72 /* drizzle.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5515EDF325B450B500F79A72 /* drizzle.m4a */; };
+		551EE0DF25BD839B001A09F1 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551EE0DC25BD839B001A09F1 /* PreferencesViewController.swift */; };
+		551EE0E025BD839B001A09F1 /* PreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 551EE0DD25BD839B001A09F1 /* PreferencesViewController.xib */; };
+		551EE0E525BD8457001A09F1 /* SoundItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551EE0E425BD8457001A09F1 /* SoundItem.swift */; };
 		5533FB0025B6D17900CF7F8E /* TimerSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5533FAFF25B6D17900CF7F8E /* TimerSound.swift */; };
-		553410F625BACE7E009C3A51 /* NSTextField+PlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553410F525BACE7E009C3A51 /* NSTextField+PlaceHolder.swift */; };
 		555125B425B5B80600720494 /* TimerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555125B325B5B80600720494 /* TimerInfo.swift */; };
+		555C77DC25BFF21A00114A94 /* drizzle.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 555C77DA25BFF21A00114A94 /* drizzle.m4a */; };
+		555C77DD25BFF21A00114A94 /* watch.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 555C77DB25BFF21A00114A94 /* watch.m4a */; };
+		5568808025C0197600F88D45 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 5568807F25C0197600F88D45 /* Credits.rtf */; };
+		5584788725BFE02E007A4C5E /* SoundPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5584788625BFE02E007A4C5E /* SoundPanel.swift */; };
 		55B7D61925B6FC9400F23E90 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B7D61725B6FC9400F23E90 /* InputViewController.swift */; };
 		55B7D61A25B6FC9400F23E90 /* InputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55B7D61825B6FC9400F23E90 /* InputViewController.xib */; };
+		55E7088E25BE9EFF00933207 /* SoundItem+UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7088D25BE9EFF00933207 /* SoundItem+UserDefaults.swift */; };
+		55E7089325BEC4BF00933207 /* View+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E7089225BEC4BF00933207 /* View+Animation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		550AD7FA25BC4E200066F9BE /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		550AD7FC25BC4E200066F9BE /* SecureBookmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureBookmark.swift; sourceTree = "<group>"; };
+		550AD7FE25BC4E200066F9BE /* NSTextField+PlaceHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTextField+PlaceHolder.swift"; sourceTree = "<group>"; };
 		5515EDAE25B4149D00F79A72 /* quannu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quannu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5515EDB125B4149D00F79A72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5515EDB325B4149E00F79A72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,13 +63,19 @@
 		5515EDC925B4149E00F79A72 /* quannuUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = quannuUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5515EDCD25B4149E00F79A72 /* quannuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quannuUITests.swift; sourceTree = "<group>"; };
 		5515EDCF25B4149E00F79A72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5515EDE625B4192B00F79A72 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		5515EDF325B450B500F79A72 /* drizzle.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = drizzle.m4a; sourceTree = "<group>"; };
+		551EE0DC25BD839B001A09F1 /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		551EE0DD25BD839B001A09F1 /* PreferencesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesViewController.xib; sourceTree = "<group>"; };
+		551EE0E425BD8457001A09F1 /* SoundItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundItem.swift; sourceTree = "<group>"; };
 		5533FAFF25B6D17900CF7F8E /* TimerSound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSound.swift; sourceTree = "<group>"; };
-		553410F525BACE7E009C3A51 /* NSTextField+PlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextField+PlaceHolder.swift"; sourceTree = "<group>"; };
 		555125B325B5B80600720494 /* TimerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerInfo.swift; sourceTree = "<group>"; };
+		555C77DA25BFF21A00114A94 /* drizzle.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = drizzle.m4a; sourceTree = "<group>"; };
+		555C77DB25BFF21A00114A94 /* watch.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = watch.m4a; sourceTree = "<group>"; };
+		5568807F25C0197600F88D45 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+		5584788625BFE02E007A4C5E /* SoundPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPanel.swift; sourceTree = "<group>"; };
 		55B7D61725B6FC9400F23E90 /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
 		55B7D61825B6FC9400F23E90 /* InputViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputViewController.xib; sourceTree = "<group>"; };
+		55E7088D25BE9EFF00933207 /* SoundItem+UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SoundItem+UserDefaults.swift"; sourceTree = "<group>"; };
+		55E7089225BEC4BF00933207 /* View+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Animation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +103,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		550AD7F825BC4E200066F9BE /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				550AD7F925BC4E200066F9BE /* log */,
+				550AD7FB25BC4E200066F9BE /* sandbox */,
+				550AD7FD25BC4E200066F9BE /* textfield */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		550AD7F925BC4E200066F9BE /* log */ = {
+			isa = PBXGroup;
+			children = (
+				550AD7FA25BC4E200066F9BE /* Log.swift */,
+			);
+			path = log;
+			sourceTree = "<group>";
+		};
+		550AD7FB25BC4E200066F9BE /* sandbox */ = {
+			isa = PBXGroup;
+			children = (
+				550AD7FC25BC4E200066F9BE /* SecureBookmark.swift */,
+			);
+			path = sandbox;
+			sourceTree = "<group>";
+		};
+		550AD7FD25BC4E200066F9BE /* textfield */ = {
+			isa = PBXGroup;
+			children = (
+				550AD7FE25BC4E200066F9BE /* NSTextField+PlaceHolder.swift */,
+			);
+			path = textfield;
+			sourceTree = "<group>";
+		};
 		5515EDA525B4149D00F79A72 = {
 			isa = PBXGroup;
 			children = (
@@ -110,16 +162,18 @@
 			children = (
 				5515EDB125B4149D00F79A72 /* AppDelegate.swift */,
 				5515EDB325B4149E00F79A72 /* Assets.xcassets */,
-				5515EDB525B4149E00F79A72 /* MainMenu.xib */,
+				5568807F25C0197600F88D45 /* Credits.rtf */,
 				5515EDB825B4149E00F79A72 /* Info.plist */,
-				5515EDF325B450B500F79A72 /* drizzle.m4a */,
-				5515EDB925B4149E00F79A72 /* quannu.entitlements */,
-				5515EDE625B4192B00F79A72 /* Log.swift */,
-				555125B325B5B80600720494 /* TimerInfo.swift */,
-				5533FAFF25B6D17900CF7F8E /* TimerSound.swift */,
 				55B7D61725B6FC9400F23E90 /* InputViewController.swift */,
 				55B7D61825B6FC9400F23E90 /* InputViewController.xib */,
-				553410F525BACE7E009C3A51 /* NSTextField+PlaceHolder.swift */,
+				5515EDB525B4149E00F79A72 /* MainMenu.xib */,
+				551EE0DB25BD839B001A09F1 /* preferences */,
+				5515EDB925B4149E00F79A72 /* quannu.entitlements */,
+				555C77D825BFF21A00114A94 /* resources */,
+				555125B325B5B80600720494 /* TimerInfo.swift */,
+				5533FAFF25B6D17900CF7F8E /* TimerSound.swift */,
+				550AD7F825BC4E200066F9BE /* utils */,
+				55E7089225BEC4BF00933207 /* View+Animation.swift */,
 			);
 			path = quannu;
 			sourceTree = "<group>";
@@ -140,6 +194,43 @@
 				5515EDCF25B4149E00F79A72 /* Info.plist */,
 			);
 			path = quannuUITests;
+			sourceTree = "<group>";
+		};
+		551EE0DB25BD839B001A09F1 /* preferences */ = {
+			isa = PBXGroup;
+			children = (
+				551EE0DC25BD839B001A09F1 /* PreferencesViewController.swift */,
+				551EE0DD25BD839B001A09F1 /* PreferencesViewController.xib */,
+				551EE0DE25BD839B001A09F1 /* sounds */,
+			);
+			path = preferences;
+			sourceTree = "<group>";
+		};
+		551EE0DE25BD839B001A09F1 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				551EE0E425BD8457001A09F1 /* SoundItem.swift */,
+				55E7088D25BE9EFF00933207 /* SoundItem+UserDefaults.swift */,
+				5584788625BFE02E007A4C5E /* SoundPanel.swift */,
+			);
+			path = sounds;
+			sourceTree = "<group>";
+		};
+		555C77D825BFF21A00114A94 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				555C77D925BFF21A00114A94 /* sounds */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		555C77D925BFF21A00114A94 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				555C77DA25BFF21A00114A94 /* drizzle.m4a */,
+				555C77DB25BFF21A00114A94 /* watch.m4a */,
+			);
+			path = sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,8 +337,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5515EDB425B4149E00F79A72 /* Assets.xcassets in Resources */,
+				551EE0E025BD839B001A09F1 /* PreferencesViewController.xib in Resources */,
+				555C77DD25BFF21A00114A94 /* watch.m4a in Resources */,
 				55B7D61A25B6FC9400F23E90 /* InputViewController.xib in Resources */,
-				5515EDFE25B4544700F79A72 /* drizzle.m4a in Resources */,
+				555C77DC25BFF21A00114A94 /* drizzle.m4a in Resources */,
+				5568808025C0197600F88D45 /* Credits.rtf in Resources */,
 				5515EDB725B4149E00F79A72 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,12 +367,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				550AD80125BC4E200066F9BE /* NSTextField+PlaceHolder.swift in Sources */,
+				551EE0E525BD8457001A09F1 /* SoundItem.swift in Sources */,
 				555125B425B5B80600720494 /* TimerInfo.swift in Sources */,
+				550AD80025BC4E200066F9BE /* SecureBookmark.swift in Sources */,
+				5584788725BFE02E007A4C5E /* SoundPanel.swift in Sources */,
+				55E7089325BEC4BF00933207 /* View+Animation.swift in Sources */,
+				551EE0DF25BD839B001A09F1 /* PreferencesViewController.swift in Sources */,
+				550AD7FF25BC4E200066F9BE /* Log.swift in Sources */,
 				55B7D61925B6FC9400F23E90 /* InputViewController.swift in Sources */,
 				5533FB0025B6D17900CF7F8E /* TimerSound.swift in Sources */,
-				5515EDE725B4192B00F79A72 /* Log.swift in Sources */,
-				553410F625BACE7E009C3A51 /* NSTextField+PlaceHolder.swift in Sources */,
 				5515EDB225B4149D00F79A72 /* AppDelegate.swift in Sources */,
+				55E7088E25BE9EFF00933207 /* SoundItem+UserDefaults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
