@@ -21,7 +21,7 @@ You must type the timer expression, no beautiful but less useful time wheels, ju
 
 ### Absolute time
 
-Allow to set a specific hour, minute (and second) for current day
+Allow to set a specific hour, minute (and second).
 
 Enter `8:10` or `16.34` or `22:00:57`
 
