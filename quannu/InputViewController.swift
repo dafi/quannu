@@ -73,6 +73,12 @@ class InputViewController: NSViewController, NSControlTextEditingDelegate {
         NSApp.orderFrontStandardAboutPanel(nil)
     }
 
+    @IBAction func openSupport(_ sender: AnyObject) {
+        if let url = URL(string: "https://github.com/dafi/quannu") {
+            NSWorkspace.shared.open(url)
+        }
+    }
+
     @IBAction func preferences(_ sender: AnyObject) {
         if let window = preferences?.view.window {
             NSApplication.shared.activate(ignoringOtherApps: true)
