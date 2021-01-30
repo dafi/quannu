@@ -21,7 +21,7 @@ You must type the timer expression, no beautiful but less useful time wheels, ju
 
 ### Absolute time
 
-Allow to set a specific hour, minute (and second).
+Allow to set a specific hour, minute (and second) using the `:` or `.` separators
 
 Enter `8:10` or `16.34` or `22:00:57`
 
@@ -29,14 +29,14 @@ Enter `8:10` or `16.34` or `22:00:57`
 
 Allow to set a timer starting from the current time
 
-Fire the timer in 12 minutes `12m`
+Fire the timer in 12 minutes (starting from the current time) `12m`
 
-You can specify hours, minutes and seconds, `3h22m4s`
+The allowed suffixes are
 
-## TODO List
+| Suffix | Description |
+|--------|-------------|
+| s      | seconds     |
+| m      | minutes     |
+| h      | hours.      |
 
-[ ] Support multiple timers
- 
-[ ] Choose user sound files
-
-[ ] Block the screen 
+Examples: `3h22m4s` or `4h10s`
